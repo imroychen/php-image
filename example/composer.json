@@ -1,0 +1,14 @@
+{
+	"name": "iry/image-example",
+	"description": "iry/image example",
+
+	"require": {
+		"php": ">=5.4",
+      	"ext-mbstring": "*"
+    },
+	"autoload": {
+		"psr-4": {
+			"iry\\image\\": "../src"
+		}
+	}
+}
