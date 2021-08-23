@@ -1,2 +1,4 @@
 /.idea
 /.vscode
+example/vendor
+example/composer.lock
