@@ -63,7 +63,7 @@ class Gd extends Base
             $r = ['r'=>hexdec( $r ),'g'=>hexdec( $g ),'b'=>hexdec( $b )];
         }elseif (strpos($color,'rgb')===0){
             $_res = [];
-            $color = preg_grep('/\s+/','',$color);
+            $color = preg_replace('/\s+/','',$color);
             preg_match('/rgba?\((\d+),(\d+),(\d+)[,\)]/',$color,$_res);
             if($_res){
                 $r = ['r'=>intval($_res[1]),'g'=>intval($_res[2]),'b'=>intval($_res[3])];
@@ -274,7 +274,7 @@ class Gd extends Base
      * @return $this
      */
 
-    public function crop ($x=0 ,$y=0,$w ,$h) {
+    public function crop ($x ,$y,$w ,$h) {
         if($this->_hasError()) return $this;
 
         $src = $this->_getImg();

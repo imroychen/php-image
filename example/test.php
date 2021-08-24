@@ -3,19 +3,20 @@ require_once ('no-composer-require.php'); //普通加载方式
 //require_once('vendor/autoload.php');//composer 加载方式
 
 use iry\image\Image;
-//use \iry\image\Gd
-//use \iry\image\Magick库
+//use \iry\image\Gd;
+use \iry\image\ImageMagick;
 
 //可选
 //Image::setLib();//自动设置库，如果你的服务器支持GD则使用GD 否则使用Magick
-Image::setLib('Gd'); //手动设置Gd库 需要PHP GD扩展支持
-//Image::setLib('ImageMagick');//手动设置库 需要在你的服务器上安装ImageMagick软件 （无需PHP图库扩展）
+//Image::setLib('Gd'); //手动设置Gd库 需要PHP GD扩展支持
+Image::setLib('ImageMagick');//手动设置库 需要在你的服务器上安装ImageMagick软件 （无需PHP图库扩展）
 
 $waterMark = __DIR__ . '/img/watermark.png';
 
 
 //----------------
-$img = Image::src(__DIR__ . '/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new ImageMagick('file');
+//$img = Image::src(__DIR__ . '/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new ImageMagick('file');
+$img = new ImageMagick(__DIR__ . '/img/test-img.jpg');
 //重置图片尺寸
 $img->resize(800,800);
 
@@ -37,7 +38,7 @@ $img->rotate(30);
 //$img->stretch(500,500,true);
 
 //保存结果
-$r = $img->save('{file_dir}/test.dist.jpg');
+$r = $img->save('{file_dir}/result.jpg');
 
 
 //失败获取错误原因

@@ -101,7 +101,7 @@ abstract class Base
 
     abstract public function watermark ($waterFilePath ,$position,$w='100%',$h='100%');
 
-
+    abstract public function stretch($width,$height,$eqRatio=false);
 
 
     /**
@@ -112,4 +112,5 @@ abstract class Base
      */
 
     abstract public function save($dest,$rmSrc = false);
+
 }
