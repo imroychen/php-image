@@ -8,7 +8,7 @@ class Image
 
     static function setLib($lib=''){
         if(empty($lib)){//自动计算使用什么库
-            $lib = function_exists('imagecreate')?'Gd':'Magick';
+            $lib = function_exists('imagecreate')?'Gd':'ImageMagick';
         }else {
             $lib = ucfirst(strtolower($lib));
         }

@@ -15,8 +15,8 @@ $waterMark = __DIR__ . '/img/watermark.png';
 
 
 //----------------
-//$img = Image::src(__DIR__ . '/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new ImageMagick('file');
-$img = new ImageMagick(__DIR__ . '/img/test-img.jpg');
+$img = Image::src(__DIR__ . '/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new ImageMagick('file');
+//$img = new ImageMagick(__DIR__ . '/img/test-img.jpg');
 //重置图片尺寸
 $img->resize(800,800);
 
