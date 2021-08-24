@@ -45,7 +45,7 @@ $img->addText('left & top 左上',20,'lt','....' )
         "suf"=>'文件后缀',
         "size" =>'文件大小',
         "mime" =>'mime'
-    ]
+    ];
 ```
 
 ### 缩放 resize
@@ -105,6 +105,22 @@ windows(C:\Windows\Fonts)、Mac(/System/Library/Fonts)
 <br>[Han Serif 简体中文](https://github.com/adobe-fonts/source-han-sans/tree/release/OTF/SimplifiedChinese)
 
 ### 图片水印 watermark
+```php
+/**
+ * @param string $watermarkFile
+ * @param string $position lb/lt/rb/rt/l/r/t/b/c
+ * l：left, r：right , t：top ,b:bottom ， c:Center
+ * 
+ * 强制水印的大小
+ * @param int|string $width 水印缩放至多宽？ 默认100%(水印的实际大小)
+ * @param int|string $height 水印缩放至多高？ 默认100%(水印的实际大小)
+ * 
+ * @return ImageMagick
+ */
+
+Image::src('file.jpg')->watermark('/watermark.png','rb');//位置：右下角
+Image::src('file.jpg')->watermark('/watermark.png','c', 60,60); //位置：中心  水印大小，强制等比缩放到60x60
+```
 
 ### 保存图片：save
 ```php
