@@ -84,12 +84,12 @@ abstract class Base
      * @param string $text 写入文字
      * @param $textSize
      * @param $position
-     * @param string $font
+     * @param $fontFile
      * @param string $color
      * @return string 保存后图片路径
      */
 
-    abstract public function addText ($text ,$textSize ,$position,$font,$color='#000000');
+    abstract public function addText ($text ,$textSize ,$position,$fontFile,$color='#000000');
 
     /**
      * @param $waterFilePath

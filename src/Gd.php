@@ -201,8 +201,8 @@ class Gd extends Base
 
     /**
      * 缩放
-     * @param int $width 宽
-     * @param int $height 高
+     * @param int|string $width 宽 e.g.: 300|'30%'
+     * @param int|string $height 高 e.g.: 300|'30%'
      * @return $this
      */
 
@@ -213,8 +213,9 @@ class Gd extends Base
         $src = $this->_getImg();
         $srcW = $src['w'];
         $srcH = $src['h'];
-        $width = $width==='100%'?$srcW:$width;
-        $height = $height==='100%'?$srcH:$height;
+
+        $width = $this->_processPercentage($width,$srcW);
+        $height = $this->_processPercentage($height,$srcH);
 
         $rate = min($width/$srcW,$height/$srcH);
         if($rate!==1) {
@@ -364,14 +365,14 @@ class Gd extends Base
     /**
      * @param $waterFilePath
      * @param $position
-     * @param string $w
-     * @param string $h
+     * @param int $w
+     * @param int $h
      * @return $this
      *
      * @inheritDoc
      */
 
-    public function watermark ($waterFilePath ,$position, $w='100%',$h='100%') {
+    public function watermark ($waterFilePath ,$position, $w=-1,$h=-1) {
         if($this->_hasError()){
             return $this;
         }
@@ -380,6 +381,9 @@ class Gd extends Base
             $this->_setError('watermark file/error');
             return $this;
         }
+
+        $w = $w<0?'100%':$w;
+        $h = $h<0?'100%':$h;
 
         $waterImg = $this->_new($waterFilePath)->resize($w, $h)->getImg();
         $wmW = $waterImg['w'];

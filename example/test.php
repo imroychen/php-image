@@ -9,7 +9,7 @@ use \iry\image\ImageMagick;
 //可选
 //Image::setLib();//自动设置库，如果你的服务器支持GD则使用GD 否则使用Magick
 //Image::setLib('Gd'); //手动设置Gd库 需要PHP GD扩展支持
-Image::setLib('ImageMagick');//手动设置库 需要在你的服务器上安装ImageMagick软件 （无需PHP图库扩展）
+//Image::setLib('ImageMagick');//手动设置库 需要在你的服务器上安装ImageMagick软件 （无需PHP图库扩展）
 
 $waterMark = __DIR__ . '/img/watermark.png';
 

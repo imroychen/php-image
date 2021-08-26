@@ -2,12 +2,14 @@
 ## 示例
 ```php
 use iry\image\Image;
-$waterMark = __DIR__ . '/img/watermark.png';
+$waterMark = '/img/watermark.png';
+//mage::setLib('Gd/ImageMagick');//可选 默认自动检测
+//得到对象的示例
+$img = Image::src('/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new ImageMagick('file');
 
-$img = Image::src(__DIR__ . '/img/test-img.jpg'); //也可以直接 new Gd('file'); 或者 new Magick('file');
 //重置图片尺寸
 $img->resize(800,800);
-//添加水印 lt左上，rt:右上 ,l:左中，t:上中....
+//添加水印 lt左上，rt:右上 ,l:左中，t:上中.... lt/rt/lb/rb/l/r/t/b/c | [x,y]
 $img->watermark($waterMark,'c')->watermark($waterMark,'lt',60,60)->watermark($waterMark,'rb',120,120);
 //添加文本
 //$img->addText('text2',14);

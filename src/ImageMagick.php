@@ -69,25 +69,24 @@ class ImageMagick extends Base
 		copy($src,$this->_tmpSrc);
 	}
 
-	/**
+    /**
      * 缩放
-	 * @param int $sizeW
-	 * @param int $sizeH
-	 * @param int $quality
-	 * @return $this
-	 */
+     * @param int $width
+     * @param int $height
+     * @return $this
+     */
 
-	public function resize($width=300,$height=400,$quality=80){
+	public function resize($width,$height){
 		$src = $this->_tmpSrc;
 		$dst = $src;
 		if(file_exists($src)) {
-			$quality = intval($quality);
+			//$quality = intval($quality);
 
             $width = intval($width);
             $height = intval($height);
 			$size = $width . 'x' . $height;
-
-			$cmd = "convert -resize $size -quality $quality \"$src\" \"$dst\"";;
+            /*-quality $quality*/
+			$cmd = "convert -resize $size \"$src\" \"$dst\"";;
 			exec($cmd);
             $this->_setTmpRes($src,$dst);
 		}
