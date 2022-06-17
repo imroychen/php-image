@@ -165,7 +165,7 @@ class Gd extends Base
             'l'=>[0, ($ctnH - $h) / 2],
             'r'=>[$ctnW - $w, ($ctnH - $h) / 2],
 
-            't'=>[$ctnW - $w,0],
+            't'=>[($ctnW - $w)/2,0],
 
             'b'=>[($ctnW - $w) / 2, $ctnH - $h],
             'c'=>[($ctnW - $w) / 2, ($ctnH - $h) / 2]
@@ -301,11 +301,12 @@ class Gd extends Base
     }
 
     /**
-     * 旋转图片
+     * 顺时针旋转图片
      * @param int $angle 旋转角度
      * @param int $bgColor 旋转后空余背景
      */
     public function rotate ($angle,$bgColor='#ffffff') {
+        $angle = ($angle * -1);
         if($this->_hasError()) return $this;
         $img = $this->_getImg();
         $bgColor = $this->_getRGB($bgColor);
@@ -321,6 +322,7 @@ class Gd extends Base
         }
         return  $this;
     }
+
 
     /**
      * 写入文字

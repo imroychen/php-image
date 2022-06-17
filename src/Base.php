@@ -73,11 +73,21 @@ abstract class Base
     abstract public function crop ($x ,$y,$w ,$h);
 
     /**
-     * 旋转图片
+     * 顺时针旋转图片
      * @param int $angle 旋转角度
      * @param int $bgColor 旋转后空余背景
      */
     abstract public function rotate ($angle,$bgColor='#ffffff');
+
+    /**
+     * 逆时针旋转图片
+     * @param $angle
+     * @param string $bgColor
+     * @return mixed
+     */
+    public function contrarotate ($angle,$bgColor='#ffffff'){
+        return $this->rotate($angle*-1,$bgColor);
+    }
 
     /**
      * 写入文字
