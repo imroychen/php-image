@@ -1,6 +1,6 @@
 {
 	"name": "iry/image",
-	"description": "php image process. PHP图片处理",
+	"description": "php image process. PHP图片快捷处理",
 	"keywords": ["php image processing","Image", "GD", "imagick", "ImageMagick","watermark", "thumbnail","crop","resize"],
 	"type": "library",
 	"license": "MIT",
